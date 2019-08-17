@@ -1,0 +1,22 @@
+scalar Date
+
+type User{
+  id: String!
+  name: String
+  lastName: String
+  dni: String
+  phone: String
+  email: String!
+  password: String!
+  passwordToken: String
+  passwordTokenDate: Date
+  address: String
+  district: String
+  department: String
+  country: String
+}
+
+type Query{
+  user(id: String): User
+  users: [User!]
+}
