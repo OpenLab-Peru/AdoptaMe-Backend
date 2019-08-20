@@ -1,0 +1,5 @@
+type Adoption{
+  pet: Pet!
+  description: String
+  adoptionRules: [AdoptionRule]
+}

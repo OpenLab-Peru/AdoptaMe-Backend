@@ -1,0 +1,6 @@
+type Pet{
+  name: String!
+  species: Int!
+  race: Int!
+  genre: Int!
+}

@@ -1,0 +1,6 @@
+interface Paginate{
+  count: Int!
+  page: Int!
+  pages: Int!
+  limit: Int!
+}

@@ -1,0 +1,54 @@
+scalar Date
+
+type User{
+  _id: ID!
+  name: String!
+  lastName: String!
+  dni: String
+  cellphone: String!
+  email: String!
+  password: String!
+  passwordToken: String
+  passwordTokenDate: Date
+  address: String
+  district: String
+  department: String
+  country: String
+}
+
+type UsersPaginated implements Paginate{
+  count: Int!
+  page: Int!
+  pages: Int!
+  limit: Int!
+  users: [User!]
+}
+
+type UserTokenized {
+  user: User
+  token: String!
+}
+
+type Query{
+  user(id: String): User
+  users(page: Int, limit: Int): UsersPaginated
+}
+
+type Mutation{
+  createUser(input: RegisterUserInput!): UserTokenized
+  loginUser(input: LoginUserInput!): UserTokenized
+}
+
+input RegisterUserInput{
+  name: String!
+  lastName: String!
+  cellphone: String!
+  email: String!
+  password: String!
+  confirmPassword: String!
+}
+
+input LoginUserInput{
+  email: String!
+  password: String!
+}
