@@ -16,10 +16,11 @@ import { HttpError } from './common/classes/http-error.class';
   imports: [
     CommonModule,
     GraphQLModule.forRoot({
-      debug: true,
-      playground: true,
+      debug: process.env.NODE_ENV != 'production',
       typePaths: ['./**/*.graphql'],
-      formatError
+      formatError,
+      playground: true,
+      introspection: true,
     }),
     UserModule,
     FavoriteModule,
